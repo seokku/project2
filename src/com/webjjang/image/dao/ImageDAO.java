@@ -173,7 +173,7 @@ public class ImageDAO {
 		return result;
 	}
 	
-	// 3. 이미지 파일 정보 수정 - 번호 , 파일명
+	// 4. 이미지 파일 정보 수정 - 번호 , 파일명
 	public int updateFile(ImageVO vo) throws Exception {
 		int result = 0;
 		try {
@@ -192,6 +192,30 @@ public class ImageDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 			throw new Exception("이미지 파일 수정 DB 처리 중 오류");
+		} finally {
+			DBInfo.close(con, pstmt);
+		}
+		return result;
+	}
+	
+	// 5. 이미지 게시판 삭제
+	public int delete(Long no) throws Exception {
+		int result = 0;
+		try {
+			// 1.2.
+			con = DBInfo.getConnection();
+			// 3.4.
+			pstmt = con.prepareStatement(DBSQL.IMAGE_DELETE);
+			pstmt.setLong(1, no);
+			// 5.
+			result = pstmt.executeUpdate();
+			// 6.
+			System.out.println("ImageDAO.delete() - 이미지 게시판 삭제 완료 ");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw new Exception("이미지 게시판 삭제 수정 DB 처리 중 오류");
 		} finally {
 			DBInfo.close(con, pstmt);
 		}

@@ -54,6 +54,7 @@ $(function(){
 	<!-- 파일첨부를 하는 입력에는 반드시 post방식이여야 하고 enctype 을 지정해야만 한다.
 	  input tag의 type="file"로 지정한다. -->
 	<form action="write.jsp" method="post" enctype="multipart/form-data" id="writeForm" >
+		<input name="perPageNum" value="${param.perPageNum }" type="hidden">
 		<div class="form-group">
 			<label for="title">제목</label>
 			<input name="title" id="title" class="form-control" />
@@ -67,9 +68,9 @@ $(function(){
 			<label for="imageFile">이미지 파일(JPG, JPEG, GIF, PNG - 이미지 지원)</label>
 			<input name="imageFile" id="imageFile" type="file" class="form-control" />
 		</div>
-		<button class="btn btn-defualt">올리기</button>
-		<button type="reset" class="btn btn-defualt">새로입력</button>
-		<button type="button" id="cancelBtn" class="btn btn-defualt">취소</button>
+		<button class="btn btn-default">올리기</button>
+		<button type="reset" class="btn btn-default">새로입력</button>
+		<button type="button" id="cancelBtn" class="btn btn-default">취소</button>
 	</form>
 </div>
 </body>

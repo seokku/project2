@@ -57,6 +57,9 @@ public class DBSQL {
 	// 4-1. 이미지 파일 정보 수정 - 번호, 제목 , 내용 , 작성자ID, 파일명
 	public static final String IMAGE_UPDATE_FILE 
 	= " update image set fileName =? where no = ? ";
+	// 5. 이미지 게시판 삭제
+	public static final String IMAGE_DELETE
+	= " delete from image where no = ? ";
 	
 	// 공지사항 쿼리------------------------------------------------------------------
 	// 1.리스트 - 번호, 제목, 공지시작일, 공지종료일, 최근수정일

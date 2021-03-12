@@ -42,5 +42,5 @@ vo.setFileName(path + fileName);
 ExeService.execute(Beans.get(AuthorityFilter.url), vo);
 
 // 리스트로 자동 이동시킨다.
-response.sendRedirect("list.jsp");
+response.sendRedirect("list.jsp?page=1&perPageNum=" + multi.getParameter("perPageNum"));
 %>
